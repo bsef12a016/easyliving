@@ -1,0 +1,379 @@
+
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 50px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Home Page Carousel */
+
+header.carousel {
+    height: 100%;
+}
+
+    header.carousel .item,
+    header.carousel .item.active,
+    header.carousel .carousel-inner {
+        height: 100%;
+        width:100%;
+    }
+
+    header.carousel .fill {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+/* 404 Page Styles */
+
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    /*line-height: 50px;*/
+}
+
+    .price sup {
+        top: -20px;
+        left: 2px;
+        font-size: 20px;
+    }
+
+.period {
+    display: block;
+    font-style: italic;
+}
+
+/* Footer Styles */
+
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+.divider {
+    background-color: #D7D7D7;
+    max-width: 100%;
+    height: 2px;
+    margin-top: -14px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-size: 19px;
+    padding-bottom: 7px;
+    display: inline-block;
+    border-bottom: 7px solid #4A4786;
+}
+
+
+.buttonColor {
+    width: 100%;
+    font-family: Open Sans;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    padding: 10px 35px !important;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #69992C;
+    box-shadow: 0px 1px 1px #FFF inset;
+    text-shadow: 0px -1px 3px #0E4562;
+    background: linear-gradient(#81BE32, #76AE2E) repeat scroll 0% 0% transparent;
+}
+
+.myProperties tr {
+    border-bottom: 1px solid #D8D8D8;
+}
+
+.myPropertiesHeader {
+    font-family: Open Sans;
+    font-size: 18px;
+}
+
+.myProperties td.myPropertyImg {
+    width: 15%;
+}
+
+.myProperties td {
+    padding: 10px 0px;
+}
+
+.myPropertyActions {
+    width: 24%;
+}
+
+.myProperties span {
+    font-family: Open Sans;
+    font-size: 12px;
+    margin-right: 27px;
+    float: left;
+}
+
+.myPropertyActions .icon {
+    margin-right: 5px;
+}
+
+.pageList {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .pageList li {
+        display: inline;
+    }
+
+        .pageList li a {
+            color: #A1A1A1;
+            padding: 4px 10px;
+            border-radius: 3px;
+            background-color: #DCDCDC;
+        }
+
+.propertyItem {
+    background-color: #FFF;
+    box-shadow: 0px 1px 3px #D4D4D4;
+    margin-bottom: 30px;
+}
+
+.propertyContent {
+    padding: 9px;
+}
+
+.propertyImg {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.divider.thin {
+    height: 1px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.forSale {
+    float: left;
+    font-family: Proxima Nova Semi-bold;
+    font-size: 15px;
+    background-color: #D5D5D5;
+    color: #FFF;
+    padding: 4px 9px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.price_prop {
+    font-family: Proxima Nova Semi-bold;
+    float: right;
+    color: #4A4786;
+    font-size: 23px;
+}
+
+.propertyDetails {
+    background-color: #F8F8F8;
+    margin-top: 0px;
+    border: 1px solid #CACACA;
+    width: 100%;
+    text-align: center;
+}
+
+    .propertyDetails td {
+        font-family: Proxima Nova Semi-bold;
+        font-size: 12px;
+        width: 33.6%;
+        height: 45px;
+        border-color: #CACACA;
+        color: #ABABAB;
+    }
+
+
+.bx-wrapper img {
+    max-width: 100%;
+    display: block;
+}
+
+.bx-wrapper {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+.gallery #bx-pager {
+    text-align: center;
+    background-color: #FFF;
+    padding: 10px;
+    margin-bottom: 40px;
+}
+
+.sliderControls {
+    margin-top: 300px;
+    position: absolute;
+    width: 100%;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.amentitiesTable {
+    width: 100%;
+}
+
+    .amentitiesTable td {
+        width: 27%;
+        height: 43px;
+    }
+
+.gallery #bx-pager a.active img {
+    opacity: 1;
+}
+
+.gallery #bx-pager a img {
+    opacity: 0.6;
+}
+
+.gallery .sliderControls .slider-prev {
+    float: left;
+    margin-left: 35px;
+}
+
+.gallery .sliderControls span {
+    margin-top: -420px;
+    opacity: 0.6;
+    transition: opacity 0.3s linear 0s;
+}
+
+.sliderControls .slider-prev {
+    float: left;
+    margin-left: 15px;
+}
+
+.sliderControls span {
+    margin-top: 0px;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1000;
+    transition: opacity 0.3s linear 0s;
+}
+
+.gallery .sliderControls .slider-next {
+    float: right;
+    margin-right: 60px;
+}
+
+.gallery .sliderControls span {
+    margin-top: -420px;
+    opacity: 0.6;
+    transition: opacity 0.3s linear 0s;
+}
+
+.sliderControls .slider-next {
+    float: right;
+    margin-right: 15px;
+}
+
+.sliderControls span {
+    margin-top: 0px;
+    opacity: 0.5;
+    position: relative;
+    z-index: 1000;
+    transition: opacity 0.3s linear 0s;
+}
+
+.overview {
+    background-color: #F8F8F8;
+    padding: 10px;
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.overviewList li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.overviewList span {
+    font-size: 13px;
+    font-family: Proxima Nova Semi-bold;
+    float: right;
+    color: #4A4786;
+}
+
+.icon {
+    float: left;
+    margin-right: 10px;
+    padding-top: 0px;
+}
+
+.ctaBox {
+    background-color: #EBEBEB;
+    padding: 30px 25px 30px 15px;
+    border-radius: 5px;
+}
+
+.buttonColor {
+    font-family: Open Sans;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    padding: 10px 35px !important;
+    color: #FFF;
+    border-radius: 5px;
+    border: 1px solid #69992C;
+    box-shadow: 0px 1px 1px #FFF inset;
+    text-shadow: 0px -1px 3px #0E4562;
+    background: linear-gradient(#81BE32, #76AE2E) repeat scroll 0% 0% transparent;
+}
+
+.properties {
+    padding: 70px 0px;
+    background-color: #F5F5F5;
+    border: 1px solid #DEDEDE;
+    box-shadow: 0px 1px 1px #FFF inset;
+}

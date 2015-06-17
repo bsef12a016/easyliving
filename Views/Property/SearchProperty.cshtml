@@ -1,0 +1,148 @@
+﻿@model List<EAD_Project.Models.MyOwn>
+@{
+    ViewBag.Title = "SearchProperty";
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+}
+
+
+@*@Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#countrySelector").change(function () {
+                var countryId = $("#countrySelector").val();
+                $("#citySelctor option").remove();
+                $.getJSON("/home/GetCities?id=" + countryId, function (data) {
+                    $("#citySelctor").append('<option>-Select City-</option>');
+                    $.each(data, function (i, item) {
+                        $("#citySelctor").append('<option value=' + item.Id + '>' + item.Name + '</option>');
+                        //alert('Id = ' + item.Id + " Name = " + item.Name);
+                    });
+                });
+            });
+        });
+    </script>*@
+@*$.ajax({
+    type: 'GET',
+    url: '@Url.Action("save2", "Connect")',
+    success: function (result) {
+    dropIt(result);
+    }
+    });*@
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#propertyType").change(function () {
+            var s = parseInt($("#propertyType").val());
+            $.ajax({
+                type: 'GET',
+                data: {
+                    id: s
+                },
+                url: '@Url.Action("SearchResult", "Property")',
+                success: function (item) {
+                    //                    window.alert("AGAYA");
+                    $("#searchResult tr").remove();
+                    $.each(item, function (i, data) {
+                        $("#searchResult").append('<tr><td class="myPropertyImg"><a href="/Property/PropertyDetail/' + data.Id + '"><img class="smallThumb" src="' + data.picPat + '" alt=""></a></td><td class="myPropertyAddress"><a href="/Property/PropertyDetail/' + data.Id + '"><h4>' + data.Address + '</h4></a></td><td class="myPropertyType">' + data.p_type + '</td><td class="myPropertyActions"><span><a href="/Property/PropertyDetail/' + data.Id + '"><img class="icon" src="/Images/icon-view.png" alt="">VIEW</a></span></td></tr>');
+                    });
+                },
+                error: function (d) {
+                    window.alert("Error Occured Please Try Later");
+                }
+            });
+        });
+    });
+</script>
+<div class="row">
+    <img src="~/Images/search.png" style="width:100%;" />
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<!-- start horizontal filter -->
+<section class="filter">
+    <div class="container">
+        <div class="filterHeader">
+            <ul class="filterNav tabs">
+                <li><a class="current triangle" href="#tab1">ALL PROPERTIES</a></li>
+            </ul>
+            <div class="filterHeadButton"><a class="buttonGrey" href="#">VIEW ALL LISTINGS</a></div>
+        </div>
+        <div class="filterContent" id="tab1">
+            @*            <form method="post" action="#">*@
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="formBlock">
+                        <label for="propertyType">Property Type</label><br />
+                        <select name="property type" id="propertyType" class="formDropdown">
+                            <option value="">Any</option>
+                            <option value="1">Family House</option>
+                            <option value="2">Single House</option>
+                            <option value="3">Apartment</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="formBlock">
+                        <input class="buttonColor" type="submit" value="FIND PROPERTIES" style="margin-top:24px;">
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            @*            </form>*@
+        </div><!-- END TAB1 -->
+    </div><!-- END CONTAINER -->
+</section>
+<!-- end horizontal filter -->
+
+
+
+<div class="container">
+    <div class="divider"></div>
+    <div class="row">
+        @*<div id="searchResult">
+
+            </div>*@
+        <table class="myProperties" style="width:100%;">
+            <tbody>
+                <tr class="myPropertiesHeader">
+                    <td class="myPropertyImg">Image</td>
+                    <td class="myPropertyAddress">Address</td>
+                    <td class="myPropertyType">Type</td>
+                    <td class="myPropertyActions">Actions</td>
+                </tr>
+                @*<tr>
+                        <td class="myPropertyImg"><a href="/Property/PropertyDetail/@x.Id"><img class="smallThumb" src="@y.Path" alt=""></a></td>
+                        <td class="myPropertyAddress"><a href="/Property/PropertyDetail/@x.Id"><h4>@x.Address</h4></a></td>
+                        <td class="myPropertyType">Family House</td>
+                        <td class="myPropertyActions">
+                            <span><a href="/Property/PropertyDetail/@x.Id"><img class="icon" src="~/Images/icon-view.png" alt="">VIEW</a></span>
+                        </td>
+                    </tr>*@
+            </tbody>
+        </table>
+
+
+        <table class="myProperties" style="width:100%;">
+            <tbody id="searchResult"></tbody>
+        </table>
+
+
+
+        @*<tr><td class="myPropertyImg"><a href="/Property/PropertyDetail/@x.Id"><img class="smallThumb" src="@y.Path" alt=""></a></td><td class="myPropertyAddress"><a href="/Property/PropertyDetail/@x.Id"><h4>@x.Address</h4></a></td><td class="myPropertyType">Family House</td><td class="myPropertyActions"><span><a href="/Property/PropertyDetail/@x.Id"><img class="icon" src="~/Images/icon-view.png" alt="">VIEW</a></span></td></tr>*@
+
+    </div>
+
+    <!-- end row -->
+    @*<ul class="pageList">
+        <li><a href="#">&lt;</a></li>
+        <li><a href="#" class="current">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&gt;</a></li>
+    </ul>*@
+</div>

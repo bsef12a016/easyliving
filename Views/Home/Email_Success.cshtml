@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Email_Success";
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+}
+@{
+    var customerName = Request["fullName"];
+    var customerPNumber = Request["pNumber"];
+
+    var customerEmail = Request["email"];
+    var customerMessage = Request["message"];
+    var errorMessage = "";
+    string myEmail = "nabeel.akhtar1993@gmail.com";
+    try
+    {
+        // Initialize WebMail helper
+        WebMail.SmtpServer = "smtp.gmail.com";
+        WebMail.SmtpPort = 587;
+        WebMail.UserName = myEmail;
+        WebMail.Password = "aragon@b33l2028";
+        WebMail.From = myEmail;
+
+        // Send email
+        WebMail.Send(to: myEmail,
+            subject: "Help request from - " + customerName,
+            body: customerMessage
+        );
+    }
+    catch (Exception ex)
+    {
+        errorMessage = ex.Message;
+    }
+}
+<div class="row">
+    <img src="~/Images/contact.png" style="width:100%;" />
+</div>
+<br />
+<br />
+<!-- Page Content -->
+<div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <h2 style="text-align:center;">Your Email Has Been Send Succesfully</h2>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+
+
+
+
+<!-- jQuery -->
+<script src="~/Scripts/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="~/Scripts/bootstrap.min.js"></script>
+<!-- Contact Form JavaScript -->
+<!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+
+<script src="~/Scripts/jqBootstrapValidation.js"></script>
+<script src="~/Scripts/contact_me.js"></script>
+

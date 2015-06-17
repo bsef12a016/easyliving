@@ -1,0 +1,222 @@
+﻿@model EAD_Project.Models.Property
+@{
+    ViewBag.Title = "EditProperty";
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+}
+<div class="row">
+    <img src="~/Images/submit_property.png" style="width:100%;" />
+</div>
+<br />
+<br />
+<section class="properties">
+    <div class="container">
+        <form action="/Property/editingProperty/@Model.Id" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <!-- start property info -->
+                <div class="col-lg-4 col-md-4">
+                    <h3>PROPERTY INFO</h3>
+                    <div class="divider"></div>
+                    <div class="sidebarWidget submission">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="price">Price ($)</label><br>
+                                    <input name="p.Price" id="p.price" type="text" value="@Model.Price">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="address">Address</label><br>
+                                    <input name="p.Address" id="p.address" type="text" value="@Model.Address">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="city">City</label><br>
+                                    <input name="p.City" id="city" type="text" value="@Model.City">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="Area">Area</label><br>
+                                    <input name="p.Area" id="Area" type="text" value="@Model.Area">
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div><!-- end row -->
+                    </div>
+                </div>
+                <!-- end property info -->
+                <!-- start amenities -->
+                <div class="col-lg-4 col-md-4">
+                    <h3>AMENITIES</h3>
+                    <div class="divider"></div>
+                    <div class="sidebarWidget submission">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="amenityCheckList formBlock">
+                                    <label>Amenities</label><br><br>
+                                    <div class="row">
+                                        @if (Model.Air_Conditioning == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="1" type="checkbox" name="p.Air_Conditioning" checked><label for="1">Air Conditioning</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="1" type="checkbox" name="p.Air_Conditioning"><label for="1">Air Conditioning</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Balcony == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="2" type="checkbox" name="p.Balcony" checked><label for="2">Balcony</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="2" type="checkbox" name="p.Balcony"><label for="2">Balcony</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Cable_TV == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="3" type="checkbox" name="p.Cable_TV" checked><label for="3">Cable TV</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="3" type="checkbox" name="p.Cable_TV"><label for="3">Cable TV</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Heating == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="4" type="checkbox" name="p.Heating" checked><label for="4">Heating</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="4" type="checkbox" name="p.Heating"><label for="4">Heating</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Internet == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="5" type="checkbox" name="p.Internet" checked><label for="5">Internet</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="5" type="checkbox" name="p.Internet"><label for="5">Internet</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Pool == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="6" type="checkbox" name="p.Pool" checked><label for="6">Pool</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="6" type="checkbox" name="p.Pool"><label for="6">Pool</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Garage == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="7" type="checkbox" name="p.Garage" checked><label for="7">Garage</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="7" type="checkbox" name="p.Garage"><label for="7">Garage</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Garden == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="8" type="checkbox" name="p.Garden" checked><label for="8">Garden</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="8" type="checkbox" name="p.Garden"><label for="8">Garden</label></div>
+                                        }
+
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Bedrooms == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="9" type="checkbox" name="p.Bedrooms" checked><label for="9">BedRooms</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="9" type="checkbox" name="p.Bedrooms"><label for="9">BedRooms</label></div>
+                                        }
+                                        <div style="clear:both;"></div>
+                                        @if (Model.Bathrooms == "on")
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="10" type="checkbox" name="p.Bathrooms" checked><label for="10">Bath Rooms</label></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="amenityCheck col-lg-6 col-md-12"><input id="10" type="checkbox" name="p.Bathrooms"><label for="10">Bath Rooms</label></div>
+
+                                        }
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear:both;"></div>
+                        </div><!-- end row -->
+                    </div>
+                </div>
+                <!-- end amenities -->
+                <!-- start additional info -->
+                <div class="col-lg-4 col-md-4">
+                    <h3>ADDITIONAL INFO</h3>
+                    <div class="divider"></div>
+                    <div class="sidebarWidget submission">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-6">
+                                <div class="formBlock">
+                                    <label for="propertyType">Property Type</label><br>
+                                    <select name="p.Property_Type" id="propertyType" class="formDropdown">
+                                        @if (Model.Property_Type == 1)
+                                        {
+                                            <option value="1" selected>Family House</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="1">Family House</option>
+                                        }
+                                        @if (Model.Property_Type == 2)
+                                        {
+                                            <option value="2" selected>Single House</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="2">Single House</option>
+
+                                        }
+                                        @if (Model.Property_Type == 3)
+                                        {
+                                            <option value="3" selected>Apartment</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="3">Apartment</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            @*<div class="col-lg-12 col-md-12 col-sm-6">
+                                    <div class="formBlock">
+                                        <label>Photos</label><br>
+                                        <input type="file" name="pic1">
+                                        <input type="file" name="pic2">
+                                        <input type="file" name="pic3">
+                                        <input type="file" name="pic4">
+                                    </div>
+                                </div>*@
+                            <div style="clear:both;"></div>
+                        </div><!-- end row -->
+                    </div>
+                </div>
+                <!-- end additional info -->
+                <div class="col-lg-4 col-lg-offset-4 col-md-4">
+                    <div class="formBlock">
+                        <input class="buttonColor" value="SUBMIT PROPERTY" type="submit">
+                    </div>
+                </div>
+
+            </div><!-- end row -->
+        </form>
+    </div><!-- end container -->
+</section>
