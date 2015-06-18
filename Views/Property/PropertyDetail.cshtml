@@ -1,0 +1,220 @@
+﻿@model EAD_Project.Models.Property
+@{
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+}
+<div class="row">
+    <img src="~/Images/properties.png" style="width:100%;" />
+</div>
+<br />
+<br />
+
+<!-- start main content section -->
+<section class="properties">
+    <div class="container">
+        <div class="row">
+            <!-- start content -->
+            <div class="col-lg-12 col-md-12">
+
+                <div class="container">
+                    <ul class="bxslider" data-call="bxslider" data-options="slideMargin:5, autoReload:true, auto: true">
+                        @foreach (var x in Model.PicturePaths)
+                        {
+                            <li>
+                                <img src="@x.Path" />
+                            </li>
+                        }
+                        @*<li>
+                                <img src="~/Images/banner3.jpg" />
+                            </li>
+                            <li>
+                                <img src="~/Images/banner4.jpg" />
+                            </li>
+                            <li>
+                                <img src="~/Images/banner5.jpg" />
+                            </li>*@
+                    </ul>
+                </div>
+                <!-- end row -->
+                <!-- start related properties -->
+                <!--<h4>RELATED PROPERTIES</h4>-->
+                <br />
+                <div class="divider thin"></div>
+            </div><!-- end content -->
+            <!-- start sidebar -->
+        </div><!-- end row -->
+
+
+
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="overview">
+                    <h4>OVERVIEW</h4>
+                    <ul class="overviewList" style="list-style: outside none none;">
+                        @*<li>Property Type <span>@Model.Property_Type</span></li>*@
+                        <li>Contract Type <span>FOR SALE</span></li>
+                        <li>Location <span>@Model.Address</span></li>
+                        <li>Size <span>@Model.Area meter</span></li>
+                        <li>Bedrooms <span>@Model.Bedrooms</span></li>
+                        <li>Bathrooms <span>@Model.Bathrooms</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <p class="price" style="float:right;">$@Model.Price</p>
+                <p class="forSale" style="float:right; margin-right:20px;">FOR SALE</p>
+                <h1>@Model.Address</h1>
+                <p>@Model.City</p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula dapibus
+                    mauris, quis ullamcorper enim aliquet sed. Maecenas quis eget tellus dui. Vivamus
+                    condimentum egestas.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod
+                    sollicitudin nunc, eget pretium massa. Ut sed adipiscing enim, pellentesque ultrices
+                    erat. Integer placerat felis neque, et semper augue ullamcorper in. Pellentesque
+                    iaculis leo iaculis aliquet ultrices. Suspendisse potenti. Aenean ac magna faucibus,
+                    consectetur ligula vel, feugiat est. Nullam imperdiet semper neque eget euismod.
+                    Nunc commodo volutpat semper.
+                </p><br />
+                <h4>GENERAL AMENTITIES</h4>
+                <div class="divider thin"></div>
+                <table class="amentitiesTable">
+                    <tr>
+                        <td>
+                            @if (Model.Air_Conditioning == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Air Conditioning</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Air Conditioning</p>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.Bathrooms == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />BathRooms</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />BathRooms</p>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.Heating == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Heating</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Heating</p>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Bedrooms == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />BedRooms</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />BedRooms</p>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.Balcony == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Balcony</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Balcony</p>
+                            }
+
+                        </td>
+                        <td>
+                            @if (Model.Internet == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Internet</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Internet</p>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Pool == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Pool</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Pool</p>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.Garden == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Garden</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Garden</p>
+                            }
+                        </td>
+                        <td>
+                            @if (Model.Garage == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Garage</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Garage</p>
+                            }
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model.Cable_TV == "on")
+                            {
+                                <p><img src="~/Images/icon-check.png" />Cable TV</p>
+                            }
+                            else
+                            {
+                                <p><img src="~/Images/icon-cross.png" />Cable TV</p>
+                            }
+                        </td>
+                    </tr>
+                </table><br />
+            </div><!-- end col -->
+        </div>
+
+    </div><!-- end container -->
+</section>
+<!-- end main content -->
+<br />
+<br />
+<br />
+
+<!-- jQuery library (served from Google) -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="~/Scripts/bxslider-4-master/jquery.bxslider-rahisified.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#myslider').bxSlider({
+            auto: true,
+            slideMargin: 5,
+            autoReload: true,
+            //breaks: [{ screen: 0, slides: 1, pager: false }, { screen: 460, slides: 2 }, { screen: 768, slides: 3 }]
+        });
+    });
+</script>
+
+<!-- bxSlider CSS file -->

@@ -1,0 +1,74 @@
+﻿@model EAD_Project.Models.Table
+@{
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+}
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(document).ready(function () {
+        //        window.alert("Hello");
+        $("#Email_Address").focusout(function () {
+            var s = $("#Email_Address").val();
+            window.alert(s);
+            $.getJSON("/User/check_uName?name=" + s, function (d) {
+                //               window.alert("Hello ANdar");
+                if (d) {
+                    $('#errMsg').text("");
+                } else {
+                    $('#errMsg').text("User Name Is Not Valid");
+                }
+            });
+        });
+        $("#Email_Address").focusin(function () {
+            //            window.alert("Hello Bhr");
+            $('#errMsg').text("");
+        });
+    });
+</script>
+
+
+
+<div class="row">
+    <img src="~/Images/login_form.png" style="width:100%;" />
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <h3>LOGIN</h3>
+            <div class="divider"></div>
+            <p style="font-size:13px;">Don't have an account yet? <a href="/User/Register">Register here!</a></p>
+            <!-- start login form -->
+            <div class="filterContent sidebarWidget">
+                <form method="post" action="/User/login_confirm">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-6">
+                            <p id="errMsg"></p>
+                            <div class="formBlock">
+                                @Html.Label("Email")
+                                @*<label for="login">Email</label>*@
+                                <br>
+                                @*@Html.TextBoxFor(m => m.Email_Address, new { @class = "form-control" })*@
+                                <input name="Email_Address" class="form-control" id="Email_Address" type="text">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-6">
+                            <div class="formBlock">
+                                @Html.Label("Password")
+                                @*<label for="pass">Password</label><br>*@
+                                @*@Html.TextBoxFor(m => m.Password, new { @class = "form-control" })*@
+                                <input name="Password" class="form-control" id="Password" type="password">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-6">
+                            <div class="formBlock">
+                                <input id="login" class="buttonColor" value="LOGIN" style="margin-top:24px;" type="submit">
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div><!-- end row -->
+                </form><!-- end form -->
+            </div><!-- end login form -->
+        </div><!-- end col -->
+    </div>
+</div>

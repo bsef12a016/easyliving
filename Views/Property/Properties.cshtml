@@ -1,0 +1,52 @@
+﻿@model List<EAD_Project.Models.Property>
+@{
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+    ViewBag.Title = "Peroperties | Easy Living";
+    //Model List<EAD_Project.Models.Property>
+}
+
+<div class="row">
+    <img src="~/Images/properties.png" style="width:100%;" />
+</div>
+<br />
+<br />
+<div class="container">
+    <div class="divider"></div>
+    <div class="row">
+        @foreach (var x in Model)
+        {
+            <div class="col-lg-3 col-md-3 col-sm-6">
+                <div class="propertyItem">
+                    <div class="propertyContent">
+                        @foreach (var y in x.PicturePaths)
+                        {
+                            <a href="/Property/PropertyDetail/@x.Id" class="propertyImgLink"><img class="propertyImg" src="@y.Path" alt=""></a>
+                            break;
+                        }
+                        <h4><a href="/Property/PropertyDetail/@x.Id">587 Smith Avenue</a></h4>
+                        <p>@x.Address</p>
+                        <div class="divider thin"></div>
+                        <p class="forSale">FOR SALE</p>
+                        <p class="price_prop">@x.Price</p>
+                    </div>
+                    <table class="propertyDetails" border="1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="~/~/Images/icon-area.png" alt="" style="margin-right:7px;" />@x.Area meter
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div><!-- end row -->
+    <ul class="pageList">
+        <li><a href="#">&lt;</a></li>
+        <li><a href="#" class="current">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&gt;</a></li>
+    </ul>
+</div>

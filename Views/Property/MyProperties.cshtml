@@ -1,0 +1,93 @@
+﻿@model List<EAD_Project.Models.Property>
+@{
+    Layout = "~/Views/Shared/_LayoutHF.cshtml";
+}
+
+<div class="row">
+    <img src="~/Images/myProperties.png" style="width:100%;" />
+</div>
+<br />
+<br />
+<div class="container">
+    <a style="float:right; margin-top:-7px;" href="/Property/addProperty" class="buttonGrey btn btn-default">+ Submit New Property</a>
+    <h3>MY PROPERTIES</h3>
+    <div class="divider"></div>
+    <table class="myProperties" style="width:100%;">
+        <tbody>
+            <tr class="myPropertiesHeader">
+                <td class="myPropertyImg">Image</td>
+                <td class="myPropertyAddress">Address</td>
+                <td class="myPropertyType">Type</td>
+                <td class="myPropertyStatus">Status</td>
+                <td class="myPropertyDate">Date Created</td>
+                <td class="myPropertyActions">Actions</td>
+            </tr>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    @foreach (var y in x.PicturePaths)
+                    {
+                        <td class="myPropertyImg"><a href="/Property/PropertyDetail/@x.Id"><img class="smallThumb" src="@y.Path" alt=""></a></td>
+                        break;
+                    }
+                    <td class="myPropertyAddress"><a href="/Property/PropertyDetail/@x.Id"><h4>@x.Address</h4></a></td>
+                    @if (x.Property_Type == 1)
+                    {
+                        <td class="myPropertyType">Family House</td>
+                    }
+                    else if (x.Property_Type == 2)
+                    {
+                        <td class="myPropertyType">Single House</td>
+                    }
+                    else
+                    {
+                        <td class="myPropertyType">Apartment</td>
+                    }
+                    <td class="myPropertyStatus">@x.Status</td>
+                    <td class="myPropertyDate">@x.Date_Created</td>
+                    <td class="myPropertyActions">
+                        <span><a href="/Property/EditProperty/@x.Id"><img class="icon" src="~/Images/icon-pencil.png" alt="">EDIT</a></span>
+                        <span><a href="/Property/removeProperty/@x.Id"><img class="icon" src="~/Images/icon-cross.png" alt="">REMOVE</a></span>
+                        <span><a href="/Property/PropertyDetail/@x.Id"><img class="icon" src="~/Images/icon-view.png" alt="">VIEW</a></span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <ul class="pageList">
+        <li><a href="#">&lt;</a></li>
+        <li><a href="#" class="current">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">&gt;</a></li>
+    </ul>
+</div>
+
+
+
+@*<table class="myProperties" style="width:100%;">
+    <tbody>
+        <tr class="myPropertiesHeader">
+            <td class="myPropertyImg">Image</td>
+            <td class="myPropertyAddress">Address</td>
+            <td class="myPropertyType">Type</td>
+            <td class="myPropertyStatus">Status</td>
+            <td class="myPropertyDate">Date Created</td>
+            <td class="myPropertyActions">Actions</td>
+        </tr>
+            <tr>
+                    <td class="myPropertyImg"><a href="/Property/PropertyDetail/@x.Id"><img class="smallThumb" src="@y.Path" alt=""></a></td>
+                <td class="myPropertyAddress"><a href="/Property/PropertyDetail/@x.Id"><h4>@x.Address</h4></a></td>
+                    <td class="myPropertyType">Family House</td>
+                    <td class="myPropertyType">Single House</td>
+                    <td class="myPropertyType">Apartment</td>
+                <td class="myPropertyStatus">@x.Status</td>
+                <td class="myPropertyDate">@x.Date_Created</td>
+                <td class="myPropertyActions">
+                    <span><a href="/Property/EditProperty/@x.Id"><img class="icon" src="~/Images/icon-pencil.png" alt="">EDIT</a></span>
+                    <span><a href="/Property/removeProperty/@x.Id"><img class="icon" src="~/Images/icon-cross.png" alt="">REMOVE</a></span>
+                    <span><a href="/Property/PropertyDetail/@x.Id"><img class="icon" src="~/Images/icon-view.png" alt="">VIEW</a></span>
+                </td>
+            </tr>
+    </tbody>
+</table>*@
